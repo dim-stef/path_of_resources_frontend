@@ -4,7 +4,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { Flex, Box } from "@chakra-ui/layout";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
-import theme from './theme';
+import theme from '../components/theme';
 
 const stripePromise = loadStripe('pk_test_51JfQdeK8quZTT1Es7q0G3wAe8Dz11Gc8RniEAnRZZ7yAdLouhoDBHb5IqUYOHnyN3htW1mMOFZI3GuAfWbtLmv5000pqy0xkao');
 const queryClient = new QueryClient();
