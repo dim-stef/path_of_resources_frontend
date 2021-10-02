@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { useQuery } from "react-query";
-import { Flex } from "@chakra-ui/layout";
+import { Flex, Text } from "@chakra-ui/layout";
 import {
   Alert,
   AlertIcon,
@@ -85,8 +86,20 @@ export default function Home({ bundles }) {
       <Heading as="h2" size="3xl" mb={10} isTruncated>
         Path of resources
       </Heading>
+      <Heading as="h5" maxW="600px" size="md" mb={5}>
+        Hey there. These are just some bundles containing resources. Basically
+        we did the research so you don't have to
+      </Heading>
 
-      <Flex w="100%" flexWrap="wrap">
+      <Text as="p" colorScheme="blue" mb={10}>
+        You can stalk me{" "}
+        <Link href="https://www.dimitrisstefanakis.dev/">
+          <a target="_blank" style={{color:'#90cdf4'}}>here</a>
+        </Link>{" "}
+        if you don't like the bundles 💀
+      </Text>
+
+      <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
         {data.map((bundle) => {
           return <PathBox bundle={bundle} key={bundle.name} />;
         })}
