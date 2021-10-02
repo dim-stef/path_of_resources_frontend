@@ -1,0 +1,40 @@
+.pathBoxFull p,
+.pathBoxFull h1,
+.pathBoxFull h2,
+.pathBoxFull h3,
+.pathBoxFull h4,
+.pathBoxFull h5 {
+  margin: 10px 0;
+}
+
+.pathBoxFull h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.pathBoxFull h2 {
+  margin: 0.83em 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.pathBoxFull h3 {
+  margin: 1em 0;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+.pathBoxFull h4 {
+  margin: 1.33em 0;
+  font-weight: bold;
+}
+
+.pathBoxFull ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
