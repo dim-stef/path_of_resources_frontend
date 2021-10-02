@@ -100,7 +100,7 @@ export default function Home({ bundles }) {
       </Text>
 
       <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
-        {data.map((bundle) => {
+        {data && data.map((bundle) => {
           return <PathBox bundle={bundle} key={bundle.name} />;
         })}
       </Flex>
