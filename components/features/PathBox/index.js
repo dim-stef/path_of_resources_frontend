@@ -30,7 +30,7 @@ function PathBox({ bundle }) {
       <Flex
         flexFlow="column"
         h="450px"
-        w="250px"
+        w="350px"
         mr={5}
         mt={5}
         mb={5}
