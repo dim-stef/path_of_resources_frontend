@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     <Elements stripe={stripePromise}>
       <ChakraProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
-          <Flex minH="100vh" w="100vw" justifyContent="center" padding={10}>
+          <Flex minH="100vh" w="100%" justifyContent="center" padding={10}>
             <Flex h="100%" w="100%" maxW="860px" justifyContent="center">
               <Component {...pageProps} />
             </Flex>
