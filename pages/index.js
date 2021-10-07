@@ -33,8 +33,6 @@ export default function Home({ bundles }) {
   const { data } = useQuery("bundles", getBundles, { initialData: bundles });
   const [status, setStatus] = useState(null);
 
-  console.log("data", data, bundles);
-
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
