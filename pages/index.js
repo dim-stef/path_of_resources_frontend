@@ -54,7 +54,7 @@ export default function Home({ bundles }) {
     <Flex w="100%" flexFlow="column" justifyContent="center">
       <Head>
         <title>Path of resources - save time on research</title>
-        <meta name="description" content="We did the research so you don't have to"></meta>
+        <meta name="description" content="We did the research so you don't have to."></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -89,7 +89,7 @@ export default function Home({ bundles }) {
       </Heading>
       <Heading as="h5" maxW="600px" size="md" mb={5}>
         Hey there. These are just some bundles containing resources. Basically
-        we did the research so you don't have to
+        we did the research so you don't have to.
       </Heading>
 
       <Text as="p" colorScheme="blue" mb={10}>
