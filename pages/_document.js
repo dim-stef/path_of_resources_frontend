@@ -1,6 +1,9 @@
 import { ColorModeScript } from "@chakra-ui/react";
+import LogRocket from 'logrocket';
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../components/theme";
+
+LogRocket.init('6qyhxw/path-of-resources');
 
 export default class Document extends NextDocument {
   render() {
