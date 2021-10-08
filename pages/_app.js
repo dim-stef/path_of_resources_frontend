@@ -8,6 +8,15 @@ import theme from '../components/theme';
 
 const stripePromise = loadStripe('pk_test_51JfQdeK8quZTT1Es7q0G3wAe8Dz11Gc8RniEAnRZZ7yAdLouhoDBHb5IqUYOHnyN3htW1mMOFZI3GuAfWbtLmv5000pqy0xkao');
 const queryClient = new QueryClient();
+const LogRocket = require('logrocket');
+const setupLogRocketReact = require('logrocket-react');
+
+// only initialize when in the browser
+if (typeof window !== 'undefined') {
+  LogRocket.init('6qyhxw/path-of-resources');
+  // plugins should also only be initialized when in the browser
+  setupLogRocketReact(LogRocket);
+}
 
 
 function MyApp({ Component, pageProps }) {

@@ -2,16 +2,6 @@ import { ColorModeScript } from "@chakra-ui/react";
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 import theme from "../components/theme";
 
-const LogRocket = require('logrocket');
-const setupLogRocketReact = require('logrocket-react');
-
-// only initialize when in the browser
-if (typeof window !== 'undefined') {
-  LogRocket.init('6qyhxw/path-of-resources');
-  // plugins should also only be initialized when in the browser
-  setupLogRocketReact(LogRocket);
-}
-
 export default class Document extends NextDocument {
   render() {
     return (
