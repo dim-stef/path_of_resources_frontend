@@ -51,7 +51,7 @@ export default function Home({ bundles }) {
   return (
     <Flex w="100%" flexFlow="column" justifyContent="center">
       <Head>
-        <title>Path of resources - save time on research</title>
+        <title>Path of resources - Save time on research.</title>
         <meta name="description" content="We did the research so you don't have to."></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
