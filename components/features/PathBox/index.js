@@ -23,7 +23,12 @@ function PathBox({ bundle }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //let price = bundle.price.toLocaleString("de-DE", {style:"currency", currency:"EUR"});
-  let price = parseInt(bundle.price, 10) / 100;
+  let price = (parseInt(bundle.price, 10) / 100).toString();
+
+  // get digits after "." and check if price is 1.3 convert it to 1.30
+  if(price.split('.')[1]?.length == 1){
+    price = price + '0';
+  }
 
   return (
     <>
