@@ -1,0 +1,11 @@
+.bundleType{
+    cursor: pointer;
+}
+
+.bundleType:hover .bundleTypeImage{
+    transform: scale(1.1);
+}
+
+.bundleTypeImage{
+    transition: all 0.2s;
+}

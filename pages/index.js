@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/alert";
 import { Heading, DarkMode } from "@chakra-ui/react";
 import PathBox from "../components/features/PathBox";
+import BundleType from "../components/features/BundleType";
 import axios from "axios";
 
 async function getBundles() {
@@ -24,13 +25,30 @@ async function getBundles() {
   }
 }
 
-export async function getStaticProps() {
-  const bundles = await getBundles();
-  return { props: { bundles } };
+async function getBundleTypes() {
+  try {
+    let response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/v1/bundle_types/`
+    );
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-export default function Home({ bundles }) {
-  const { data } = useQuery("bundles", getBundles, { initialData: bundles });
+export async function getStaticProps() {
+  const bundles = await getBundles();
+  const bundleTypes = await getBundleTypes();
+  return { props: { bundles, bundleTypes } };
+}
+
+export default function Home({ bundles, bundleTypes }) {
+  const bundleResponse = useQuery("bundles", getBundles, {
+    initialData: bundles,
+  });
+  const bundleTypeResponse = useQuery("bundleTypes", getBundleTypes, {
+    initialData: bundleTypes,
+  });
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
@@ -52,7 +70,10 @@ export default function Home({ bundles }) {
     <Flex w="100%" flexFlow="column" justifyContent="center">
       <Head>
         <title>Path of resources - Save time on research.</title>
-        <meta name="description" content="We did the research so you don't have to."></meta>
+        <meta
+          name="description"
+          content="We did the research so you don't have to."
+        ></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -90,18 +111,32 @@ export default function Home({ bundles }) {
         we did the research so you don't have to.
       </Heading>
 
-      <Text as="p" colorScheme="blue" mb={10}>
-        You can stalk me{" "}
+      <Text as="p" colorScheme="blue" maxW="600px" mb={10}>
+        Thanks to everyone who purchased our first bundle 🙏, more are coming
+        soon! You can stalk me{" "}
         <Link href="https://www.dimitrisstefanakis.dev/">
-          <a target="_blank" style={{color:'#90cdf4'}}>here</a>
+          <a target="_blank" style={{ color: "#90cdf4" }}>
+            here
+          </a>
         </Link>{" "}
         if you don't like the bundles 💀
       </Text>
 
       <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
-        {data && data.map((bundle) => {
-          return <PathBox bundle={bundle} key={bundle.name} />;
-        })}
+        {bundleTypeResponse.data &&
+          bundleTypeResponse.data.map((bundleType) => {
+            return <BundleType bundleType={bundleType} key={bundleType.name} />;
+          })}
+      </Flex>
+
+      <Heading as="h1" size="2xl" mt={20} mb={5}>
+        Popular Bundles
+      </Heading>
+      <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
+        {bundleResponse.data &&
+          bundleResponse.data.map((bundle) => {
+            return <PathBox bundle={bundle} key={bundle.name} />;
+          })}
       </Flex>
 
       <footer></footer>
