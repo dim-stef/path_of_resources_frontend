@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { useQuery } from "react-query";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Flex } from "@chakra-ui/layout";
 import { Stack } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/layout";
@@ -32,10 +34,12 @@ function BundlePage() {
     getBundles(bundleType)
   );
 
-  console.log("bundleResponse", bundleResponse, bundleType);
-
   return (
     <Box w="100%">
+      <Link href="/">
+        <ArrowBackIcon mb={10} cursor="pointer" w={10} h={10} />
+      </Link>
+
       <Heading as="h2" size="3xl" mb={10} isTruncated>
         {name}
       </Heading>
@@ -43,8 +47,18 @@ function BundlePage() {
       <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
         {bundleResponse.status == "loading" ? (
           <>
-            <Skeleton height="450px" width="350px" />
-            <Skeleton height="450px" width="350px" />
+            <Skeleton
+              startColor="#252232"
+              endColor="#292732"
+              height="450px"
+              width="350px"
+            />
+            <Skeleton
+              startColor="#252232"
+              endColor="#292732"
+              height="450px"
+              width="350px"
+            />
           </>
         ) : (
           bundleResponse.data &&
