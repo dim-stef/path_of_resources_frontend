@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { Box, Heading } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 import styles from "../../../styles/BundleType.module.css";
@@ -6,7 +7,8 @@ import styles from "../../../styles/BundleType.module.css";
 function BundleType({ bundleType }) {
   const router = useRouter();
 
-  function handleBundleTypeClick() {
+  function handleBundleTypeClick(e) {
+    e.preventDefault();
     router.push({
       pathname: bundleType.slug,
       query: { name: bundleType.name },
@@ -14,8 +16,8 @@ function BundleType({ bundleType }) {
   }
 
   return (
+    <Link href={bundleType.slug} onClick={handleBundleTypeClick}>
     <Box
-      onClick={handleBundleTypeClick}
       h="200px"
       w="350px"
       borderRadius={5}
@@ -38,6 +40,8 @@ function BundleType({ bundleType }) {
         {bundleType.name}
       </Heading>
     </Box>
+    </Link>
+
   );
 }
 

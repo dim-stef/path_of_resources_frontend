@@ -1,0 +1,13 @@
+   <!-- public/sitemap.xml -->
+   <xml version="1.0" encoding="UTF-8">
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     <url>
+       <loc>https://www.pathofresources.com/path-of-exile?name=Path+of+Exile</loc>
+       <lastmod>2021-11-01</lastmod>
+     </url>
+    <url>
+       <loc>https://www.pathofresources.com/react?name=React</loc>
+       <lastmod>2021-11-01</lastmod>
+     </url>
+   </urlset>
+   </xml>

@@ -103,7 +103,7 @@ export default function Home({ bundles, bundleTypes }) {
           </Alert>
         </DarkMode>
       )}
-      <Heading as="h2" size="3xl" mb={10} isTruncated>
+      <Heading as="h1" size="3xl" mb={10} isTruncated>
         Path of resources
       </Heading>
       <Heading as="h5" maxW="600px" size="md" mb={5}>
@@ -129,7 +129,7 @@ export default function Home({ bundles, bundleTypes }) {
           })}
       </Flex>
 
-      <Heading as="h1" size="2xl" mt={20} mb={5}>
+      <Heading as="h2" size="2xl" mt={20} mb={5}>
         Popular Bundles
       </Heading>
       <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
