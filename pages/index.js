@@ -122,7 +122,7 @@ export default function Home({ bundles, bundleTypes }) {
         if you don't like the bundles 💀
       </Text>
 
-      <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
+      <Flex w="100%" flexWrap="wrap" justifyContent="center">
         {bundleTypeResponse.data &&
           bundleTypeResponse.data.map((bundleType) => {
             return <BundleType bundleType={bundleType} key={bundleType.name} />;
@@ -132,7 +132,7 @@ export default function Home({ bundles, bundleTypes }) {
       <Heading as="h2" size="2xl" mt={20} mb={5}>
         Popular Bundles
       </Heading>
-      <Flex w="100%" flexWrap="wrap" justifyContent="space-between">
+      <Flex w="100%" flexWrap="wrap" justifyContent="center">
         {bundleResponse.data &&
           bundleResponse.data.map((bundle) => {
             return <PathBox bundle={bundle} key={bundle.name} />;

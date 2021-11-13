@@ -1,33 +1,23 @@
 import { useEffect } from "react";
 import Router, { useRouter } from "next/router";
 import { Box, Text, Flex } from "@chakra-ui/layout";
-import {
-  Image,
-  Button,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  DarkMode,
-} from "@chakra-ui/react";
+import { Image, Button, useDisclosure, DarkMode } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/media-query";
 import axios from "axios";
 import PathBoxFull from "../PathBoxFull";
 import styles from "../../../styles/PathBox.module.css";
 
 function PathBox({ bundle }) {
   const router = useRouter();
+  const [isSmallerThan480] = useMediaQuery("(max-width: 480px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //let price = bundle.price.toLocaleString("de-DE", {style:"currency", currency:"EUR"});
   let price = (parseInt(bundle.price, 10) / 100).toString();
 
   // get digits after "." and check if price is 1.3 convert it to 1.30
-  if(price.split('.')[1]?.length == 1){
-    price = price + '0';
+  if (price.split(".")[1]?.length == 1) {
+    price = price + "0";
   }
 
   return (
@@ -36,9 +26,10 @@ function PathBox({ bundle }) {
         flexFlow="column"
         h="450px"
         w="350px"
-        mr={5}
-        mt={5}
-        mb={5}
+        mt={10}
+        mb={10}
+        ml={isSmallerThan480 ? 0 : 10}
+        mr={isSmallerThan480 ? 0 : 10}
         borderRadius={5}
         overflow="hidden"
         backgroundColor="#252232"
