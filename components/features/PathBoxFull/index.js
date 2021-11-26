@@ -20,8 +20,13 @@ import styles from '../../../styles/PathBoxFull.module.css';
 
 function PathBoxFull({ bundle, isOpen, onOpen, onClose }) {
   const router = useRouter();
-  let price = parseInt(bundle.price, 10) / 100;
+  let price = (parseInt(bundle.price, 10) / 100).toString();
 
+  // get digits after "." and check if price is 1.3 convert it to 1.30
+  if (price.split(".")[1]?.length == 1) {
+    price = price + "0";
+  }
+  
   async function handleBuyClick() {
     try {
       const formData = new FormData();
